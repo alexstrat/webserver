@@ -20,6 +20,12 @@ webserver.on('ping', function (data, cb) {
   cb(null, place());
 })
 
+setInterval(function() {
+  webserver.emit('pong', null, function(err, res) {
+    console.log(res);
+  });
+}, 3000);
+
 var places = [
   "world",
   "computer",
