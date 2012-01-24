@@ -14,8 +14,8 @@
         });
       }, 2000);
 
-      hook.on('pong', function (data, cb) {
-        cb(null, 'You ponged me ?')
+      hook.on('*::pong', function (data, cb) {
+        cb(null, 'I\'m '+hook.name+' and you ponged me ?')
       })
 
     });

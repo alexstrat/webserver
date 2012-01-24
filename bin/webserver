@@ -8,7 +8,7 @@ var webserver = new Webserver({
 
 webserver.start();
 
-webserver.on('ping', function (data, cb) {
+webserver.on('*::ping', function (data, cb) {
   var place = function () {
 
     var item = places.shift();
@@ -21,10 +21,9 @@ webserver.on('ping', function (data, cb) {
 })
 
 setInterval(function() {
-  webserver.emit('pong', null, function(err, res) {
-    console.log(res);
-  });
-}, 3000);
+  webserver.emit('pong')
+  }
+, 10000);
 
 var places = [
   "world",
